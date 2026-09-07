@@ -20,7 +20,7 @@ jobs:
 
       - name: Build APK
         run: |
-          unzip -o "Zunaid_zari_art_cloud_build_project (1)(1).zip" -d project
+          unzip -o "Zunaid_Zari_Art_Cloud_Build_Project (1) (1).zip" -d project
           cd project
           chmod +x gradlew
           ./gradlew assembleDebug
