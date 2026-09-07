@@ -1,1 +1,32 @@
+name: Build Zunaid Zari Art APK
 
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Build APK
+        run: |
+          unzip -o "Zunaid_zari_art_cloud_build_project (1)(1).zip" -d project
+          cd project
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Zunaid-Zari-Art-APK
+          path: project/**/build/outputs/apk/**/*.apk
