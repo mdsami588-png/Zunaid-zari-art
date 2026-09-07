@@ -22,8 +22,7 @@ jobs:
         run: |
           unzip -o "Zunaid_Zari_Art_Cloud_Build_Project (1) (1).zip" -d project
           cd "project/Zunaid_Zari_Art_Cloud_Build_Project (1)"
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          gradle assembledebug 
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
